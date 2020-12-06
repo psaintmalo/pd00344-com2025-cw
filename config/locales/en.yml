@@ -43,3 +43,22 @@ en:
     home:
       title: Welcome to the module selector
       message: Here you will be able to choose your optional modules
+
+    contact:
+      title: Contact Us
+      message: Fill the form bellow to contact us
+
+      form:
+        name: "Name:"
+        enter_name: Enter your name
+        email: "Email:"
+        enter_email: Enter your email address
+        telephone: "Telephone:"
+        enter_telephone: Enter your telephone
+        message: "Message:"
+        enter_message: Enter your message
+        submit: Contact us
+
+    request_contact:
+      no_email: Please provide an email
+      email_sent: Email sent succesfully

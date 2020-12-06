@@ -1,0 +1,18 @@
+<contact>
+
+  <h1><%= t("home.contact.title") %></h1>
+  <p><%= t("home.contact.message") %></p>
+
+  <%= form_tag request_contact_path, method: 'post' do %>
+    <%= label_tag :name, t('home.contact.form.name') %>
+    <%= text_field_tag :name, '', title: t('home.contact.form.enter_name'), size: 50 %>
+    <%= label_tag :email, t('home.contact.form.email') %>
+    <%= email_field_tag :email, '', title: t('home.contact.form.enter_email') %>
+    <%= label_tag :telephone, t('home.contact.form.telephone') %>
+    <%= telephone_field_tag :telephone, '', title: t('home.contact.form.enter_telephone') %>
+    <%= label_tag :message, t('home.contact.form.message') %>
+    <%= text_field_tag :message, '', title: t('home.contact.form.enter_message'), size: 100 %>
+    <%= submit_tag t('home.contact.form.submit') %>
+    <% end %>
+
+</contact>
