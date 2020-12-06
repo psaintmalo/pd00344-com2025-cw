@@ -1,0 +1,21 @@
+<header>
+
+  <ul class="navbar">
+
+    <div class="left">
+      <li><a href="/"> <%= t("application.header.navbar.home") %> </a></li>
+      <li><a href="contact"><%= t("application.header.navbar.contact") %></a></li>
+      <li><a href="/"><%= t("application.header.navbar.nothing") %></a></li>
+    </div>
+
+    <div class="right">
+
+    </div>
+
+  </ul>
+
+<% flash.each do |key, value| %>
+  <%= content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank? %>
+  <% end %>
+
+</header>

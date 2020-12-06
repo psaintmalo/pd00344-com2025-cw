@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= t("application.titlte") %></title>
+    <title><%= t("application.title") %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,9 +11,11 @@
 
   <body>
 
+    <%= render "shared/header" %>
 
     <%= yield %>
 
-    
+    <%= render "shared/footer" %>
+
   </body>
 </html>

@@ -33,6 +33,11 @@ en:
 
   application:
     title: Module Selector
+    header:
+      navbar:
+        home: Home
+        contact: Contact Us
+        nothing: ---------
 
   home:
     home:

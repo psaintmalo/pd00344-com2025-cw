@@ -20,3 +20,54 @@ body {
   padding-left: 10px;
 
 }
+
+footer {
+
+  position: absolute;
+  bottom: 4%;
+
+}
+
+ul.navbar {
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+
+  border-radius: 20px;
+
+  div.left li {
+    float: left;
+  }
+
+  div.right li {
+    float: right;
+  }
+
+  div li {
+    display: inline;
+
+
+    a {
+
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+
+      border-radius: 10px;
+
+      &:hover {
+        background-color: #111;
+
+      }
+      &.active {
+        background-color: #4CAF50;
+
+      }
+    }
+  }
+}
