@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default to: "support@moduleselector.com", from: 'support@moduleselector.com'
+  default to: "support@forum.com", from: 'support@forum.com'
   layout 'mailer'
 end

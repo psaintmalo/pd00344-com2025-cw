@@ -32,7 +32,7 @@
 en:
 
   application:
-    title: Module Selector
+    title: PD00344 Forum
     header:
       navbar:
         home: Home
@@ -45,8 +45,8 @@ en:
 
   home:
     home:
-      title: Welcome to the module selector
-      message: Here you will be able to choose your optional modules
+      title: Welcome to the forum
+      message: Here you will be able to share your ideas and read others.
 
     contact:
       title: Contact Us
@@ -62,6 +62,11 @@ en:
         message: "Message:"
         enter_message: Enter your message
         submit: Contact us
+
+        preview:
+          message: I am having some trouble with the forum. Could you get in contact with me?
+          dear: Dear
+          thanks: Thanks, 
 
     request_contact:
       no_email: Please provide an email

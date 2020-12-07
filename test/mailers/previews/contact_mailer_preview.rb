@@ -2,7 +2,7 @@
 class ContactMailerPreview < ActionMailer::Preview
 
   def contact_email
-    ContactMailer.contact_email("pd00344@surrey.ac.uk", "Pablo", "123456789", @message = "Hello")
+    ContactMailer.contact_email("pd00344@surrey.ac.uk", "Pablo de Saint-Malo", "123456789", @message = "Test message")
   end
 
 end

@@ -1,15 +1,15 @@
-<p>Dear <%= t("en.application.title") %></p>
-<p>I am having some trouble with my module selection. Could you get in contact with me?</p>
+<p><%= t('home.contact.form.preview.dear') %> <%= t("application.title") %></p>
+<p><%= t('home.contact.form.preview.message') %></p>
 
 <dl>
-  <dt>Name:</dt>
+  <dt><%= t('home.contact.form.name') %></dt>
   <dd><%= @name %></dd>
-  <dt>Email:</dt>
+  <dt><%= t('home.contact.form.email') %></dt>
   <dd><%= @email %></dd>
-  <dt>Telehpone</dt>
+  <dt><%= t('home.contact.form.telephone') %></dt>
   <dd><%= @telephone %></dd>
 </dl>
 
 <p><%= @message %></p>
-<p>Thanks,</p>
+<p><%= t('home.contact.form.preview.thanks') %></p>
 <p><%= @name %></p>

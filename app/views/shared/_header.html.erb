@@ -4,7 +4,11 @@
 
     <div class="left">
       <li><a href="/"> <%= t("application.header.navbar.home") %> </a></li>
-      <li><a href="contact"><%= t("application.header.navbar.contact") %></a></li>
+      <li><a href="/contact"><%= t("application.header.navbar.contact") %></a></li>
+
+      <% if user_signed_in? %>
+        <% #Placeholder for future features %>
+        <% end %>
 
     </div>
 
