@@ -6,6 +6,6 @@ one:
   user: one
 
 two:
-  title: MyString
+  title: MyString2
   text: MyText
   user: two
