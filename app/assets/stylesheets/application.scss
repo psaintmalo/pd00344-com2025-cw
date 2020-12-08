@@ -19,6 +19,7 @@ body {
   text-align: center;
   background-color: #F6F6F6;
   padding-left: 10px;
+  font-size: 13pt;
 
 }
 
@@ -107,18 +108,16 @@ div.flash {
 
 footer {
 
-  position: absolute;
-  bottom: 4%;
+  
 
 }
 
 ul.navbar {
 
   list-style-type: none;
-  margin: 0;
+  margin: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-top: 15px;
   overflow: hidden;
   background-color: #333;
 

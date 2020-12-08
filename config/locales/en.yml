@@ -99,8 +99,9 @@ en:
     destroy: Destroy
     back: Back
     title: Title
-    text: Test
+    text: Text
     user: User
+    created_at: Created At
 
     edit_post:
       editing: Editing Post
@@ -119,6 +120,7 @@ en:
     home:
       title: Welcome to the forum
       message: Here you will be able to share your ideas and read others.
+      notLoggedIn: To be able to use the forum please log in to you account or sign up.
 
     contact:
       title: Contact Us

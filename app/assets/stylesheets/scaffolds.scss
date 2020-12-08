@@ -52,8 +52,9 @@ div {
 
 .field_with_errors {
   padding: 5px;
-  padding-bottom: 10px;
-  background-color: red;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  background-color: #FF6347;
   display: table;
   border-radius: 10px;
 }

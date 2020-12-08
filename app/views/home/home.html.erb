@@ -1,2 +1,7 @@
-<h1><%= t("home.home.title") %></h1>
+<h1 id="welcome"><%= t("home.home.title") %></h1>
 <p><%= t("home.home.message") %></p>
+
+<% if not user_signed_in? %>
+  <%= content_tag :br %>
+  <%= content_tag :h3, t("home.home.notLoggedIn") %>
+<% end %>
