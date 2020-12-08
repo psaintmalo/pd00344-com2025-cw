@@ -1,6 +1,6 @@
-<h1>Editing Post</h1>
+<h1><%= t("post.edit_post.editing") %></h1>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to t("post.show"), @post %> |
+<%= link_to t("post.back"), posts_path %>

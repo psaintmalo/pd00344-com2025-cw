@@ -46,7 +46,7 @@ en:
 
       confirm:
         resendconfirm: Resend confirm instructions
-        
+
       unlock:
         resendunlock: Resend unlock instructions
 
@@ -90,6 +90,30 @@ en:
         contact: Contact Us
         nothing: ---------
         profile: Profile
+
+  post:
+
+    posts: Posts
+    show: Show
+    edit: Edit
+    destroy: Destroy
+    back: Back
+    title: Title
+    text: Test
+    user: User
+
+    edit_post:
+      editing: Editing Post
+
+    index:
+      newpost: New Post
+      confirm: Are you sure?
+
+    new_post:
+      newpost: New Post
+
+    show_post:
+
 
   home:
     home:
