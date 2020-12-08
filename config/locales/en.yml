@@ -31,6 +31,57 @@
 
 en:
 
+  users:
+    login:
+      login: Log In
+      logout: Log Out
+      email: Email
+      password: Password
+      rememberme: Remember me
+      signup: Sign Up
+      forgot: Forgot your password?
+      noconfirm: Didn't recive comfirmation instructions?
+      nounlock: Didn't recive unlock instructions?
+      signinwith: Sign in with
+
+      confirm:
+        resendconfirm: Resend confirm instructions
+        
+      unlock:
+        resendunlock: Resend unlock instructions
+
+      mailer:
+        welcome: Welcome
+        confirmaccountmessage: You can confirm your account email through the link below #:
+        cofirmaccount: Confirm my account
+        hello: Hello
+        mailchangemessage: We're contacting you to notify you that your email has been changed to
+        passchangemessage: We're contacting you to notify you that your password has been changed.
+        passchangerequest: Someone has requested a link to change your password. You can do this through the link below.
+        passchangerequestmsg1: If you didn't request this, please ignore this email.
+        passchangerequestmsg2: Your password won't change until you access the link above and create a new one.
+        changemypassword: Change my password
+        lockedmsg1: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+        lockedmsg2: Click the link below to unlock your account #:
+        unlockmyaccount: Unlock my account
+
+      passwords:
+        changeyourpassword: Change your password
+        changemypassword: Change my password
+        forgot: Forgot your password?
+        sendinstructions: Send me reset password instructions
+
+      registrations:
+        edit: Edit
+        waitingconfirm: Currently waiting confirmation for #:
+        leaveblank: (leave blank if you don't want to change it)
+        charsmin: characters minimum
+        currentpassconfirm: (we need your current password to confirm your changes)
+        update: Update
+        cancelaccount: Cancel my account
+        unhappy: Unhappy?
+        back: Back
+
   application:
     title: PD00344 Forum
     header:
@@ -38,9 +89,6 @@ en:
         home: Home
         contact: Contact Us
         nothing: ---------
-        login: Log In
-        signup: Sign Up
-        logout: Log Out
         profile: Profile
 
   home:
@@ -66,7 +114,7 @@ en:
         preview:
           message: I am having some trouble with the forum. Could you get in contact with me?
           dear: Dear
-          thanks: Thanks, 
+          thanks: Thanks,
 
     request_contact:
       no_email: Please provide an email
