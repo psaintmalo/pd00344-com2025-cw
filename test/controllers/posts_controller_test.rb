@@ -3,6 +3,8 @@ require 'test_helper'
 class PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @post = posts(:one)
+    @post2 = posts(:two)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -45,4 +47,27 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to posts_url
   end
+
+  test "should redirect to login page if logged out" do
+    sign_out users(:one)
+    get posts_url
+    assert_redirected_to new_user_session_url
+  end
+
+  test "should not destroy if logged out" do
+    sign_out users(:one)
+    delete post_url(@post)
+    assert_redirected_to new_user_session_url
+  end
+
+  test "should not get edit from other users post" do
+    get edit_post_url(@post2)
+    assert_response :redirect
+  end
+
+  test "should not get destroy from other users post" do
+    delete post_url(@post2)
+    assert_redirected_to root_url
+  end
+
 end
