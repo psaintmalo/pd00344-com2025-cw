@@ -44,6 +44,7 @@ en:
     new: New Comment
     indexTitle: "Post: "
     showAll: Show All Comments
+    emptyIndex: Oh no, this is a bit empty, why not be the first one to make a comment?
 
   users:
     login:
@@ -133,7 +134,7 @@ en:
   home:
     home:
       title: Welcome to the forum
-      message: Here you will be able to share your ideas and read others.
+      message: Here you will be able to share my existential dread by going through the worst desgined website in the history of mankind
       notLoggedIn: To be able to use the forum please log in to you account or sign up.
 
     contact:

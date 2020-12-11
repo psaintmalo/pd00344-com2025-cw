@@ -13,17 +13,15 @@
   <p><%= @post.text %></p>
 
 
-  <strong><%= t("post.user") %>:</strong>
+  <strong>  <%=t("post.user") << ": " << @post.user.email %> </strong>
+
   <br>
-  <p>
-    <%= @post.user.email %>
-  </p>
 
   <div class = "controls">
     <br>
     <% if current_user == @post.user %>
-      <%= link_to t("post.edit"), edit_post_path(@post) %>
-      <%= link_to t("post.destroy"), @post, method: :delete, data: { confirm: t("post.index.confirm") } %>
+      <%= link_to t("post.edit"), edit_post_path(@post), class: "cool" %>
+      <%= link_to t("post.destroy"), @post, class: "cool", method: :delete, data: { confirm: t("post.index.confirm") } %>
       <%= content_tag :br %>
     <% end %>
     <br>
@@ -37,7 +35,7 @@
 <div class="commentControls">
 
   <%= link_to t("comments.showAll"), post_comments_path(@post), class: "cool" %>
-  <h2> | </h2>
+  <%= content_tag :h2, "|" %>
   <%= link_to t("comments.new"), new_post_comment_path(@post), class: "cool" %>
 
 </div>

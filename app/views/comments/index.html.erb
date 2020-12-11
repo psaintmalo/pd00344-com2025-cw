@@ -3,6 +3,7 @@
 <br>
 <h2><%= t("comments.comments") %></h2>
 
+<% if @comments.count > 0 %>
 <table>
   <thead>
     <tr>
@@ -27,6 +28,12 @@
     <% end %>
   </tbody>
 </table>
+
+<% else %>
+
+  <%= content_tag :h3, t("comments.emptyIndex") %>
+
+<% end %>
 
 <br>
 
