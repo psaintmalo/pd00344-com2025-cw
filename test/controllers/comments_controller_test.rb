@@ -66,4 +66,15 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to  post_comments_url
   end
+
+  test "should redirect to login page from comments if logged out" do
+    sign_out users(:one)
+    get post_comments_url(@post)
+    assert_redirected_to new_user_session_url
+  end
+
+  test "should not create empty comments" do
+    comment = Comment.new
+    refute comment.valid?
+  end
 end

@@ -13,5 +13,9 @@ one:
 two:
   email: test2@forum.com
   encrypted_password: ----
-  
+
 # column: value
+
+three:
+  email: test3@forum.com
+  encrypted_password: ----

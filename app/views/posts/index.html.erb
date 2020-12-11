@@ -1,4 +1,4 @@
-<h1><%= t("post.index.posts") %></h1>
+<h1><%= t("post.posts") %></h1>
 
 <br>
 
@@ -27,6 +27,7 @@
         <td><%= post.user.email %></td>
         <td><%= post.created_at.strftime("%H:%M %d/%m/%Y") %></td>
         <!-- <td><%= link_to t("post.show"), post %></td> -->
+        <td><%= link_to t("post.showComments"), post_comments_path(post)%></td>
         <% if post.user == current_user%>
           <%= content_tag :td, ( link_to t("post.edit"), edit_post_path(post) )%>
           <%= content_tag :td, ( link_to t("post.destroy"), post, method: :delete, data: { confirm: t("post.index.confirm") } )%>

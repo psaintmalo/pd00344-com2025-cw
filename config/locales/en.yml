@@ -45,6 +45,7 @@ en:
     indexTitle: "Post: "
     showAll: Show All Comments
     emptyIndex: Oh no, this is a bit empty, why not be the first one to make a comment?
+    createdAt: Created At
 
   users:
     login:
@@ -117,6 +118,7 @@ en:
     text: Text
     user: User
     created_at: Created At
+    showComments: Show Comments
 
     edit_post:
       editing: Editing Post
@@ -134,7 +136,7 @@ en:
   home:
     home:
       title: Welcome to the forum
-      message: Here you will be able to share my existential dread by going through the worst desgined website in the history of mankind
+      message: Here you will be able to share your ideas and read others.
       notLoggedIn: To be able to use the forum please log in to you account or sign up.
 
     contact:

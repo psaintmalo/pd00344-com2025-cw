@@ -9,3 +9,8 @@ two:
   title: MyString2
   text: MyText
   user: two
+
+three:
+  title: This is someone elses post
+  text: Mine, not yours
+  user: three

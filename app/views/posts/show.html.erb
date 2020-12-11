@@ -13,7 +13,7 @@
   <p><%= @post.text %></p>
 
 
-  <strong>  <%=t("post.user") << ": " << @post.user.email %> </strong>
+  <strong><%= t("post.user") << ": " << @post.user.email %></strong>
 
   <br>
 
@@ -32,7 +32,7 @@
 
 <%= render "comments/show"%>
 
-<div class="commentControls">
+<div class="inlineControls">
 
   <%= link_to t("comments.showAll"), post_comments_path(@post), class: "cool" %>
   <%= content_tag :h2, "|" %>

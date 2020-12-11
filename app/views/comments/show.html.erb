@@ -11,12 +11,14 @@
     <%= @comment.commentText %>
   </p>
 
-  <p>
-    <strong><%= t("comments.user") %>:</strong>
-    <%= @comment.user.email %>
-  </p>
 
+    <strong><%= t("comments.user") << ": " << @comment.user.email %></strong>
+
+    <br>
+
+
+  <%= link_to t("back"), @post %> |
   <%= link_to t("edit"), edit_post_comment_path(@post, @comment) %> |
-  <%= link_to t("back"), post_comments_path(@post) %>
+  <%= link_to t("destroy"), [@post, @comment], method: :delete, data: { confirm: 'Are you sure?' }%>
 
 </div>

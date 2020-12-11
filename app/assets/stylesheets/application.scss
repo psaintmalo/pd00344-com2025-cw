@@ -14,6 +14,16 @@
  *= require_self
  */
 
+ div.inlineControls {
+
+   display: inline;
+
+   h2 {
+     display: inline;
+   }
+
+ }
+
  a.cool {
 
    font-size: 15pt;

@@ -9,6 +9,11 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select "p", "Here you will be able to share your ideas and read others."
   end
 
+  test "get logged out msg when logged out" do
+    get root_url
+    assert_select "h3", "To be able to use the forum please log in to you account or sign up."
+  end
+
   # Check if the contact page is returned correctly
   test "should get contact" do
     get contact_url

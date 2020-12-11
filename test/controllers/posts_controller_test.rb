@@ -9,9 +9,52 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get posts_url
+
+    assert_select "h1", "Posts"
+    assert_select "a", "New Post"
+
+    # Test table headers are correct
+    assert_select "table" do
+      assert_select "thead" do
+        assert_select "tr" do
+          assert_select "th", "Title"
+          assert_select "th", "User"
+          assert_select "th", "Created At"
+        end
+      end
+    end
+
+    # Test the correct number of options are being displayed
+    assert_select "table" do
+      assert_select "tbody" do
+        assert_select "tr:nth-child(1)" do
+          assert_select "a", "Edit"
+          assert_select "a", {count: 3}
+        end
+        assert_select "tr:nth-child(2)" do
+          assert_select "a", {count: 1}
+        end
+      end
+    end
+
     assert_response :success
   end
 
+  # Test no edit/destroy options are being displayed for others posts
+  test "should not display edit/destroy on others posts" do
+
+    get posts_url
+
+    assert_select "table" do
+      assert_select "tr:nth-child(3)" do
+        assert_select "a", {count: 0, text: "Edit"}
+        assert_select "a", {count: 0, text: "Destroy"}
+      end
+    end
+
+  end
+
+  # Test the new post page is being retrived properly
   test "should get new" do
     get new_post_url
     assert_response :success
@@ -48,7 +91,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to posts_url
   end
 
-  test "should redirect to login page if logged out" do
+  test "should redirect to login page from posts if logged out" do
     sign_out users(:one)
     get posts_url
     assert_redirected_to new_user_session_url

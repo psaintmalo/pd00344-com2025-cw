@@ -2,5 +2,12 @@
 
 <%= render 'form', post: @post %>
 
-<%= link_to t("post.show"), @post %> |
-<%= link_to t("post.back"), posts_path %>
+<br>
+
+<div class="inlineControls">
+
+  <%= link_to t("post.show"), @post, class: "cool" %>
+  <%= content_tag :h2, "|" %>
+  <%= link_to t("post.back"), posts_path, class: "cool" %>
+
+</div>
