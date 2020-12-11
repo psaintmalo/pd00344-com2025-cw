@@ -9,9 +9,8 @@
 
   <strong><%= t("post.text") %>:</strong>
   <br>
-  <p>
-    <%= @post.text %>
-  </p>
+
+  <p><%= @post.text %></p>
 
 
   <strong><%= t("post.user") %>:</strong>
@@ -22,14 +21,23 @@
 
   <div class = "controls">
     <br>
-    <% if @post.user == current_user %>
-
+    <% if current_user == @post.user %>
       <%= link_to t("post.edit"), edit_post_path(@post) %>
       <%= link_to t("post.destroy"), @post, method: :delete, data: { confirm: t("post.index.confirm") } %>
+      <%= content_tag :br %>
     <% end %>
     <br>
-    <%= link_to t("post.back"), posts_path %>
+    <%= link_to t("post.back"), posts_path, class: "cool" %>
+    <br>
   </div>
 </div>
 
 <%= render "comments/show"%>
+
+<div class="commentControls">
+
+  <%= link_to t("comments.showAll"), post_comments_path(@post), class: "cool" %>
+  <h2> | </h2>
+  <%= link_to t("comments.new"), new_post_comment_path(@post), class: "cool" %>
+
+</div>

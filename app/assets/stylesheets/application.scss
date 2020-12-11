@@ -14,12 +14,32 @@
  *= require_self
  */
 
+ a.cool {
+
+   font-size: 15pt;
+   text-decoration: none;
+   border-color: black ;
+   border-width: 2px;
+   border-style: solid;
+   padding: 3px;
+   margin: 8px;
+
+   border-radius: 2px;
+
+ }
+
 body {
 
   text-align: center;
   background-color: #F6F6F6;
   padding-left: 10px;
   font-size: 13pt;
+
+}
+
+strong.date {
+  font-size: 11pt;
+  float: right;
 
 }
 
@@ -108,7 +128,7 @@ div.flash {
 
 footer {
 
-  
+
 
 }
 

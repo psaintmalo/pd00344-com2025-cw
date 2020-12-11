@@ -7,5 +7,10 @@ one:
 
 two:
   commentText: MyText
+  post: one
+  user: two
+
+three:
+  commentText: Test
   post: two
   user: two

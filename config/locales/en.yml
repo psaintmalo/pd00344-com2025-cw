@@ -40,8 +40,10 @@ en:
     comment: Comment
     user: User
     post: Post
-    comments: Comments
+    comments: All Comments
     new: New Comment
+    indexTitle: "Post: "
+    showAll: Show All Comments
 
   users:
     login:

@@ -75,11 +75,12 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :text)
     end
 
+    # Check a user is the owner fo the post
     def check_owner
       if @post.user != current_user
         respond_to do |format|
 
-          format.html { redirect_to root_url, alert: "You cannot edit this post"}
+          format.html { redirect_to root_url, alert: "You dont have permissions for this action"}
 
         end
       end

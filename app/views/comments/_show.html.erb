@@ -1,13 +1,24 @@
 
-<% @post.comments.each do |comment|  %>
+<div class="comments">
 
-<p>
-  <strong><%= t("comments.comment") %></strong>
-  <%= comment.commentText %>
-</p>
 
-<p>
-  <strong><%= t("comments.user") %></strong>
-  <%= comment.user.email %>
-</p>
-<% end %>
+  <% @post.comments.each do |comment|  %>
+    <div class="comment">
+
+      <%= content_tag :p, comment.commentText %>
+      <div class="details">
+        <%= content_tag :strong, t("comments.user") << ":" %>
+        <%= content_tag :strong, comment.user.email %>
+
+        <% if current_user == comment.user %>
+          <%= link_to t("post.edit"), edit_post_path(@post), class: "cool" %>
+          <%= link_to t("post.destroy"),[@post, comment], class: "cool", method: :delete, data: { confirm: t("post.index.confirm") } %>
+        <% end %>
+
+        <%= content_tag :strong, comment.created_at.strftime("%H:%M %d/%m/%Y"), class: "date" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>

@@ -1,3 +1,100 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.comments {
+
+  width: 65%;
+
+}
+
+div.comment {
+
+  div.details {
+
+    display: inline;
+    padding: 10px;
+
+    a.cool {
+      margin-left: 20px;
+      color: grey;
+      border-color: grey;
+    }
+
+    strong {
+
+      font-size: 11pt;
+
+    }
+
+  }
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 90%;
+
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+  padding: 10px;
+
+  text-align: left;
+
+  strong {
+
+    color: #707070;
+
+    font-size: 13pt;
+    margin-top: 10px;
+
+  }
+
+  p {
+
+    &.title {
+      text-align: center;
+      font-size: 20pt;
+      width: auto;
+    }
+
+    border-radius: 10px;
+    background-color: #E5E5E5;
+    font-size: 13pt;
+    padding: 10px;
+
+  }
+
+}
+
+table {
+
+  margin-top: 40px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+
+  border-width: thin;
+  border-color: black;
+  border-style: solid;
+  border-radius: 10px;
+
+  tr {
+    th {
+      font-size: 20pt;
+    }
+
+    td {
+      font-size: 15pt;
+    }
+
+  }
+
+  tr:nth-child(even) {
+    background-color: #E0E0E0;
+
+  }
+
+}

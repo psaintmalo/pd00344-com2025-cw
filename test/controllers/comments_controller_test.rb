@@ -48,4 +48,22 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to  post_comments_url
   end
+
+  test "should not destroy comment if from another user" do
+
+    assert_difference('Comment.count', 0) do
+      delete post_comment_url(@post, comments(:two))
+    end
+
+    assert_redirected_to  post_comments_url
+  end
+
+  test "should destroy comment if from my user" do
+
+    assert_difference('Comment.count', -1) do
+      delete post_comment_url(@post, comments(:one))
+    end
+
+    assert_redirected_to  post_comments_url
+  end
 end

@@ -3,4 +3,4 @@
 <%= render 'form', comment: @comment %>
 
 <%= link_to t("show"), [@post, @comment] %> |
-<%= link_to t("back"), post_comments_path(@comment) %>
+<%= link_to t("back"), post_comments_path(@post) %>

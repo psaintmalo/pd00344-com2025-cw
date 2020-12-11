@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -66,6 +67,16 @@ class CommentsController < ApplicationController
   end
 
   private
+
+    # Check the current user is the owner of a comment
+    def check_owner
+      if @comment.user.id != current_user.id
+        respond_to do |format|
+          format.html { redirect_to post_comments_path, alert: "You dont have permissions for this action!"}
+        end
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = @post.comments.find(params[:id])
@@ -76,6 +87,7 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:commentText, :post_id, :user_id)
     end
 
+    # Set the parent post of the comment
     def set_post
       @post = Post.find(params[:post_id])
     end
