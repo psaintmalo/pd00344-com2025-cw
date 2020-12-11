@@ -2,12 +2,12 @@
 <% @post.comments.each do |comment|  %>
 
 <p>
-  <strong>Commenttext:</strong>
+  <strong><%= t("comments.comment") %></strong>
   <%= comment.commentText %>
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= t("comments.user") %></strong>
   <%= comment.user.email %>
 </p>
 <% end %>

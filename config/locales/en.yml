@@ -31,6 +31,18 @@
 
 en:
 
+  show: Show
+  back: Back
+  edit: Edit
+  destroy: Destroy
+
+  comments:
+    comment: Comment
+    user: User
+    post: Post
+    comments: Comments
+    new: New Comment
+
   users:
     login:
       login: Log In

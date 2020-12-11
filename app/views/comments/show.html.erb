@@ -1,17 +1,22 @@
-<p>
-  <strong>Commenttext:</strong>
-  <%= @comment.commentText %>
-</p>
+<div class="comment">
 
-<p>
-  <strong>Post:</strong>
-  <%= @comment.post %>
-</p>
+  <strong><%= t("comments.post") %>:</strong>
+  <p>
+    <%= @comment.post.title %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user %>
-</p>
+  <strong><%= t("comments.comment") %>:</strong>
+  <p>
 
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %> |
-<%= link_to 'Back', post_comments_path(@post) %>
+    <%= @comment.commentText %>
+  </p>
+
+  <p>
+    <strong><%= t("comments.user") %>:</strong>
+    <%= @comment.user.email %>
+  </p>
+
+  <%= link_to t("edit"), edit_post_comment_path(@post, @comment) %> |
+  <%= link_to t("back"), post_comments_path(@post) %>
+
+</div>

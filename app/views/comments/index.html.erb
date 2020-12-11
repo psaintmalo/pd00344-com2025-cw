@@ -1,10 +1,13 @@
-<h1>Comments</h1>
+<h1><%= t("comments.comments") %></h1>
+
+<br>
+<%= content_tag :h2, Post.find(params[:post_id]).title %>
 
 <table>
   <thead>
     <tr>
-      <th>Commenttext</th>
-      <th>User</th>
+      <th><%= t("comments.comment") %></th>
+      <th><%= t("comments.user") %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,10 +15,10 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= link_to comment.commentText, @post %></td>
+        <td><%= link_to comment.commentText, post_comment_path(comment, @post) %></td>
         <td><%= comment.user.email %></td>
-        <td><%= link_to 'Edit', edit_post_comment_path(@post, comment) %></td>
-        <td><%= link_to 'Destroy', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t("edit"), edit_post_comment_path(@post, comment) %></td>
+        <td><%= link_to t("destroy"), [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Comment', new_post_comment_path(@post) %>
+<%= link_to t("comments.new"), new_post_comment_path(@post) %>
