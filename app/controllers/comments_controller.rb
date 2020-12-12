@@ -84,7 +84,7 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:commentText, :post_id, :user_id)
+      params.require(:comment).permit(:commentText)
     end
 
     # Set the parent post of the comment

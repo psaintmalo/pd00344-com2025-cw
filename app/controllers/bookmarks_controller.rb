@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_bookmark_and_check_owner, only: [:destroy]
+  before_action :set_bookmark_check_owner, only: [:destroy]
 
   # GET /bookmarks
   # GET /bookmarks.json
@@ -11,9 +11,8 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
-    @bookmark = Bookmark.new
+    @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user_id = current_user.id
-    @bookmark.post_id = bookmark_params[:post_id]
 
     respond_to do |format|
       if @bookmark.save
@@ -38,7 +37,9 @@ class BookmarksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_bookmark_and_check_owner
+
+    #Check if the current user is the owner of the bookmark and also set the bookmark
+    def set_bookmark_check_owner
       @bookmark = Bookmark.find(params[:id])
 
       if @bookmark.user != current_user
@@ -48,11 +49,10 @@ class BookmarksController < ApplicationController
 
         end
       end
-
     end
 
     # Only allow a list of trusted parameters through.
     def bookmark_params
-      params.permit(:bookmark ,:post_id)
+      params.permit(:bookmark, :post_id)
     end
 end

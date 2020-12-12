@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :mail_params, only: [:request_contact]
 
   # Home page action
   def home
@@ -8,19 +9,14 @@ class HomeController < ApplicationController
   def contact
   end
 
-
+  # Request Contact action to send an email
   def request_contact
 
-    name = params[:name]
-    email = params[:email]
-    reason = params[:reason]
-    message = params[:message]
-
-    if email.blank?
+    if mail_params[:email].blank?
       flash[:alert] = I18n.t("home.request_contact.no_email")
       redirect_to contact_url
     else
-      ContactMailer.contact_email(email, name, reason, message)
+      ContactMailer.contact_email(mail_params)
       flash[:notice] = I18n.t("home.request_contact.email_sent")
       redirect_to root_url
     end
@@ -28,5 +24,12 @@ class HomeController < ApplicationController
 
 
   end
+
+  private
+
+    # Strong parameters for emails
+    def mail_params
+      params.permit(:name, :reason, :message, :email)
+    end
 
 end
