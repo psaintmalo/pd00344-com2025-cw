@@ -37,8 +37,9 @@ en:
   destroy: Destroy
 
   bookmarks:
-    bookmarks: My Booksmarks
+    bookmarks: My Bookmarks
     post: Post
+    emptyBookmarks: This looks a bit empty, why not go to Posts and add some bookmarks?
 
   comments:
     comment: Comment

@@ -32,6 +32,7 @@
     <% else %>
       <%= link_to t("posts.addBookmark"), bookmarks_path(post_id: @post.id), method: :post, class: "cool" %>
     <% end %>
+    <%= content_tag :strong, @post.created_at.strftime("%H:%M %d/%m/%Y"), class: "date" %>
     <br>
   </div>
 </div>

@@ -1,15 +1,63 @@
+<script type="text/javascript">
+
+  $(document).ready(function() {
+
+    console.log("ready");
+
+    var name = $("#name");
+    var email = $("#email");
+    var message = $("#message");
+
+    $("input:submit").click(function() {
+
+      nameVal = name.val();
+      emailVal = email.val();
+      telephoneVal = telephone.val();
+      messageVal = message.val();
+
+      nEmpty = 0;
+
+      nameVal.length == 0 && nEmpty++;
+      messageVal.length == 0 && nEmpty++;
+
+      console.log(emailVal.length);
+
+      if(emailVal.length == 0) {
+
+        alert("Email cant be left empty");
+        event.preventDefault();
+
+      } else {
+
+        if(nEmpty > 0) {
+
+          var msg = ((nEmpty > 1) ? "You seem to have left more than one empty field, are you sure you want to leave them empty?" : "You seem to have left an empty field, are you sure you want to leave it empty?");
+          var ans = confirm(msg);
+          if(! ans) {
+            event.preventDefault();
+          }
+
+        }
+
+      }
+
+    });
+  });
+
+</script>
+
 <contact>
 
   <h1><%= t("home.contact.title") %></h1>
   <p><%= t("home.contact.message") %></p>
 
-  <%= form_tag request_contact_path, method: 'post' do %>
+  <%= form_tag request_contact_path, method: 'post' do | f | %>
     <%= label_tag :name, t('home.contact.form.name') %>
     <%= text_field_tag :name, "", title: t('home.contact.form.enter_name'), size: 50 %>
     <%= label_tag :email, t('home.contact.form.email') %>
     <%= email_field_tag :email, user_signed_in? ? current_user.email : '', title: t('home.contact.form.enter_email') %>
-    <%= label_tag :telephone, t('home.contact.form.telephone') %>
-    <%= telephone_field_tag :telephone, '', title: t('home.contact.form.enter_telephone') %>
+    <%= label_tag :reason, t('home.contact.form.reason') %>
+    <%= select_tag :reason, options_for_select([["Account Problems", "Account Problems"], ["Technical Problems", "Technical Problems"], ["Other Problems", "Other Problems"]]) %>
     <%= label_tag :message, t('home.contact.form.message') %>
     <%= text_area_tag :message, '', title: t('home.contact.form.enter_message'), size: 90 %>
     <%= submit_tag t('home.contact.form.submit') %>

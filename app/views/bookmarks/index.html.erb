@@ -1,5 +1,6 @@
 <h1><%= t("bookmarks.bookmarks") %></h1>
 
+<% if @bookmarks.count > 0 %>
 <table>
   <thead>
     <tr>
@@ -16,5 +17,11 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+
+  <%= content_tag :br %>
+  <%= content_tag :h2, t("bookmarks.emptyBookmarks") %>
+
+<% end %>
 
 <br>
