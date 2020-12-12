@@ -120,6 +120,9 @@ en:
     created_at: Created At
     showComments: Show Comments
 
+    addBookmark: Add Bookmark
+    removeBookmark: Remove Bookmark
+
     edit_post:
       editing: Editing Post
 

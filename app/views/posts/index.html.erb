@@ -27,6 +27,14 @@
         <td><%= post.user.email %></td>
         <td><%= post.created_at.strftime("%H:%M %d/%m/%Y") %></td>
         <!-- <td><%= link_to t("post.show"), post %></td> -->
+        <td>
+        <% if Bookmark.user_bookmarks(current_user).exists?(post_id: post.id) %>
+          <%= link_to t("posts.removeBookmark"), bookmark_path( Bookmark.user_bookmarks(current_user).find_by(post_id: post.id) ), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else %>
+          <%= link_to t("posts.addBookmark"), bookmarks_path(post_id: post.id), method: :post %>
+        <% end %>
+
+        </td>
         <td><%= link_to t("post.showComments"), post_comments_path(post)%></td>
         <% if post.user == current_user%>
           <%= content_tag :td, ( link_to t("post.edit"), edit_post_path(post) )%>
