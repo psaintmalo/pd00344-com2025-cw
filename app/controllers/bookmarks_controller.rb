@@ -1,16 +1,11 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_bookmark, only: [:destroy]
+  before_action :set_bookmark_and_check_owner, only: [:destroy]
 
   # GET /bookmarks
   # GET /bookmarks.json
   def index
     @bookmarks = Bookmark.user_bookmarks(current_user)
-  end
-
-  # GET /bookmarks/1
-  # GET /bookmarks/1.json
-  def show
   end
 
   # POST /bookmarks
@@ -43,8 +38,17 @@ class BookmarksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_bookmark
+    def set_bookmark_and_check_owner
       @bookmark = Bookmark.find(params[:id])
+
+      if @bookmark.user != current_user
+        respond_to do |format|
+
+          format.html { redirect_to root_url, alert: "You dont have permissions for this action"}
+
+        end
+      end
+
     end
 
     # Only allow a list of trusted parameters through.

@@ -36,6 +36,10 @@ en:
   edit: Edit
   destroy: Destroy
 
+  bookmarks:
+    bookmarks: My Booksmarks
+    post: Post
+
   comments:
     comment: Comment
     user: User
@@ -46,6 +50,7 @@ en:
     showAll: Show All Comments
     emptyIndex: Oh no, this is a bit empty, why not be the first one to make a comment?
     createdAt: Created At
+    editingComment: Editing Comment
 
   users:
     login:
@@ -110,10 +115,6 @@ en:
   post:
 
     posts: Posts
-    show: Show
-    edit: Edit
-    destroy: Destroy
-    back: Back
     title: Title
     text: Text
     user: User

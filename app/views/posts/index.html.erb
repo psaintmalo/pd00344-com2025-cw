@@ -33,12 +33,11 @@
         <% else %>
           <%= link_to t("posts.addBookmark"), bookmarks_path(post_id: post.id), method: :post %>
         <% end %>
-
         </td>
         <td><%= link_to t("post.showComments"), post_comments_path(post)%></td>
         <% if post.user == current_user%>
-          <%= content_tag :td, ( link_to t("post.edit"), edit_post_path(post) )%>
-          <%= content_tag :td, ( link_to t("post.destroy"), post, method: :delete, data: { confirm: t("post.index.confirm") } )%>
+          <%= content_tag :td, ( link_to t("edit"), edit_post_path(post) )%>
+          <%= content_tag :td, ( link_to t("destroy"), post, method: :delete, data: { confirm: t("post.index.confirm") } )%>
         <% end %>
       </tr>
     <% end %>

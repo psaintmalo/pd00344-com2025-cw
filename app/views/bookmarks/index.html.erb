@@ -1,20 +1,17 @@
-<h1>Bookmarks</h1>
+<h1><%= t("bookmarks.bookmarks") %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Post</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th><%= t("bookmarks.post") %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @bookmarks.each do |bookmark| %>
+    <% @bookmarks.reverse.each do |bookmark| %>
       <tr>
-        <td><%= bookmark.post.title %></td>
-        <td><%= bookmark.user.email %></td>
-        <td><%= link_to 'Destroy', bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to bookmark.post.title, bookmark.post %></td>
+        <td><%= link_to t("destroy"), bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

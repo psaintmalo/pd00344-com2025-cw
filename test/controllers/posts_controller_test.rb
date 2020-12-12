@@ -29,10 +29,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       assert_select "tbody" do
         assert_select "tr:nth-child(1)" do
           assert_select "a", "Edit"
-          assert_select "a", {count: 3}
+          assert_select "a", {count: 5}
         end
         assert_select "tr:nth-child(2)" do
-          assert_select "a", {count: 1}
+          assert_select "a", {count: 3}
         end
       end
     end

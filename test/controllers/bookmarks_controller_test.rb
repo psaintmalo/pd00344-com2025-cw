@@ -3,6 +3,7 @@ require 'test_helper'
 class BookmarksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @bookmark = bookmarks(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
@@ -10,39 +11,35 @@ class BookmarksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_bookmark_url
-    assert_response :success
-  end
-
   test "should create bookmark" do
     assert_difference('Bookmark.count') do
-      post bookmarks_url, params: { bookmark: { post_id: @bookmark.post_id, user_id: @bookmark.user_id } }
+      post bookmarks_url( params: { post_id: posts(:two).id, user_id: @bookmark.user_id })
     end
 
-    assert_redirected_to bookmark_url(Bookmark.last)
+    assert_redirected_to bookmarks_url
   end
 
-  test "should show bookmark" do
-    get bookmark_url(@bookmark)
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get edit_bookmark_url(@bookmark)
-    assert_response :success
-  end
-
-  test "should update bookmark" do
-    patch bookmark_url(@bookmark), params: { bookmark: { post_id: @bookmark.post_id, user_id: @bookmark.user_id } }
-    assert_redirected_to bookmark_url(@bookmark)
-  end
-
-  test "should destroy bookmark" do
+  test "should destroy my bookmark" do
     assert_difference('Bookmark.count', -1) do
       delete bookmark_url(@bookmark)
     end
 
     assert_redirected_to bookmarks_url
   end
+
+  test "should not destroy others bookmark" do
+    assert_difference('Bookmark.count', 0) do
+      delete bookmark_url(bookmarks(:two))
+    end
+  end
+
+  test "should only display my bookmarks" do
+
+    get bookmarks_url
+
+    assert_select "tbody" do
+      assert_select "tr", {count: 1}
+    end
+  end
+
 end
