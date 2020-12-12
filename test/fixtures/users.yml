@@ -5,17 +5,20 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  username: test
   email: test@forum.com
   encrypted_password: ----
 
 # column: value
 #
 two:
+  username: test2
   email: test2@forum.com
   encrypted_password: ----
 
 # column: value
 
 three:
+  username: test3
   email: test3@forum.com
   encrypted_password: ----

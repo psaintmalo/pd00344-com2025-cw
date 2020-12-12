@@ -18,7 +18,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= link_to comment.commentText, post_comment_path(@post, comment) %></td>
-        <td><%= comment.user.email %></td>
+        <td><%= comment.user.username %></td>
         <td><%= comment.user.created_at.strftime("%H:%M %d/%m/%Y") %></td>
 
         <% if current_user == comment.user%>

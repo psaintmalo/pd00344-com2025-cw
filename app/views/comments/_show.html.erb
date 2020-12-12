@@ -8,7 +8,7 @@
       <%= content_tag :p, comment.commentText %>
       <div class="details">
         <%= content_tag :strong, t("comments.user") << ":" %>
-        <%= content_tag :strong, comment.user.email %>
+        <%= content_tag :strong, comment.user.username %>
 
         <% if current_user == comment.user %>
           <%= link_to t("post.edit"), edit_post_path(@post), class: "cool" %>

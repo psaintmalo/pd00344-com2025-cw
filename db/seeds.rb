@@ -13,8 +13,8 @@ firstUser.destroy if firstUser
 supportUser = User.where(email: "support@forum.com").first
 supportUser.destroy if supportUser
 
-users = User.create([email: "admin@forum.com", password: "password"])
-users = User.create([email: "support@forum.com", password: "hardpassword"])
+users = User.create([username: "admin", email: "admin@forum.com", password: "password"])
+users = User.create([username: "support", email: "support@forum.com", password: "hardpassword"])
 
 supportUser = User.where(email: "support@forum.com").first
 firstUser = User.where(email: "admin@forum.com").first
