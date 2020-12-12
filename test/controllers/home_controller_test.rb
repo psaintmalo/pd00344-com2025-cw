@@ -33,7 +33,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   # Check a valid email will return a notice and no alert
   test "correct post response and email sent" do
     post request_contact_url, params: {name: "Pablo", email: "pd00344@surrey.ac.uk",
-    telephone: "123456789", message: "This is a test"}
+    reason: "Account Support", message: "This is a test"}
 
     assert_response :redirect
     assert_nil flash[:alert]
