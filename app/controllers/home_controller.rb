@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 
     name = params[:name]
     email = params[:email]
-    telephone = params[:telephone]
+    reason = params[:reason]
     message = params[:message]
 
     if email.blank?
