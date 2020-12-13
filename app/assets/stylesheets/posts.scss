@@ -21,7 +21,7 @@ div.post {
 
     color: #707070;
 
-    font-size: 13pt;
+    font-size: 12pt;
     margin-top: 10px;
 
   }
@@ -48,7 +48,7 @@ div.post {
 table {
 
   margin-top: 40px;
-  width: 80%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
   padding: 10px;
@@ -60,18 +60,21 @@ table {
 
   tr {
     th {
-      font-size: 20pt;
+      font-size: 15pt;
     }
 
     td {
-      font-size: 15pt;
+      font-size: 13pt;
     }
 
   }
 
   tr:nth-child(even) {
     background-color: #E0E0E0;
+  }
 
+  a {
+    font-size: 12pt;
   }
 
 }

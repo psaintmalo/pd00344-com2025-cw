@@ -1,4 +1,3 @@
-
 <%= content_tag :h1, t("comments.indexTitle") << Post.find(params[:post_id]).title %>
 <br>
 <h2><%= t("comments.comments") %></h2>
@@ -39,5 +38,5 @@
 
 <br>
 
-<%= link_to t("back"), @post, class: "cool" %>
+<%= link_to t("back"), @origin_url, class: "cool" %>
 <%= link_to t("comments.new"), new_post_comment_path(@post), class: "cool" %>

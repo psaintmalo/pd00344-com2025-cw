@@ -10,6 +10,7 @@
       <th><%= t("post.title") %></th>
       <!-- <th><%= t("post.text") %></th> -->
       <th><%= t("post.user") %></th>
+      <th><%= t("post.comments")%></th>
       <th><%= t("post.views")%></th>
       <th><%= t("post.created_at") %></th>
       <th colspan="3"></th>
@@ -26,17 +27,18 @@
         <td><%=link_to post.title, post %></td>
         <!-- <td><%= post.text %></td> -->
         <td><%= post.user.username %></td>
+        <td><%= post.comments.count %></td>
         <td><%= post.views.to_s %></td>
         <td><%= post.created_at.strftime("%H:%M %d/%m/%Y") %></td>
         <!-- <td><%= link_to t("post.show"), post %></td> -->
         <td>
         <% if Bookmark.user_bookmarks(current_user).exists?(post_id: post.id) %>
-          <%= link_to t("posts.removeBookmark"), bookmark_path( Bookmark.user_bookmarks(current_user).find_by(post_id: post.id) ), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to t("posts.removeBookmark"), bookmark_path( Bookmark.user_bookmarks(current_user).find_by(post_id: post.id), origin_url: posts_url ), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% else %>
-          <%= link_to t("posts.addBookmark"), bookmarks_path(post_id: post.id), method: :post %>
+          <%= link_to t("posts.addBookmark"), bookmarks_path(post_id: post.id, origin_url: posts_url), method: :post %>
         <% end %>
         </td>
-        <td><%= link_to t("post.showComments"), post_comments_path(post)%></td>
+        <td><%= link_to t("post.showComments"), post_comments_path(post, origin_url: posts_url)%></td>
         <% if post.user == current_user%>
           <%= content_tag :td, ( link_to t("edit"), edit_post_path(post) )%>
           <%= content_tag :td, ( link_to t("destroy"), post, method: :delete, data: { confirm: t("post.index.confirm") } )%>

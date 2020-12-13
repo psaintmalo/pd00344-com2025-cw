@@ -66,6 +66,7 @@ en:
       nounlock: Didn't recive unlock instructions?
       signinwith: Sign in with
       emailOrUser: Email Or Username
+      charsmin: characters minimum
 
       confirm:
         resendconfirm: Resend confirm instructions
@@ -123,6 +124,7 @@ en:
     created_at: Created At
     showComments: Show Comments
     views: Views
+    comments: Comments
 
     addBookmark: Add Bookmark
     removeBookmark: Remove Bookmark

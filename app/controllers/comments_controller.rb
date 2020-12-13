@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = @post.comments
+    @comments = Comment.post_comments(@post)
+    @origin_url = params[:origin_url] == nil ? @post : params[:origin_url]
   end
 
   # GET /comments/1
@@ -30,6 +31,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
+
+
+    # TODO not to redirect to show
+
 
     respond_to do |format|
       if @comment.save
@@ -70,7 +75,7 @@ class CommentsController < ApplicationController
 
     # Check the current user is the owner of a comment
     def check_owner
-      if @comment.user.id != current_user.id
+      if @comment.user != current_user
         respond_to do |format|
           format.html { redirect_to post_comments_path, alert: "You dont have permissions for this action!"}
         end
