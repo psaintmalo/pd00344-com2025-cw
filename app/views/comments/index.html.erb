@@ -22,7 +22,6 @@
 
         <% if current_user == comment.user%>
 
-          <%= content_tag :td, ( link_to t("edit"), edit_post_comment_path(@post, comment) )%>
           <%= content_tag :td, ( link_to t("destroy"), [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } ) %>
           <% end %>
       </tr>

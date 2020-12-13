@@ -11,7 +11,6 @@
         <%= content_tag :strong, comment.user.username %>
 
         <% if current_user == comment.user %>
-          <%= link_to t("post.edit"), edit_post_path(@post), class: "cool" %>
           <%= link_to t("post.destroy"),[@post, comment], class: "cool", method: :delete, data: { confirm: t("post.index.confirm") } %>
         <% end %>
 

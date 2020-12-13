@@ -19,8 +19,7 @@
 
   <%= link_to t("back"), @post %>
   <% if current_user.id == @comment.user_id%>
-  | <%= link_to t("edit"), edit_post_comment_path(@post, @comment) %> |
-  <%= link_to t("destroy"), [@post, @comment], method: :delete, data: { confirm: 'Are you sure?' }%>
+  | <%= link_to t("destroy"), [@post, @comment], method: :delete, data: { confirm: 'Are you sure?' }%>
   <%end%>
   <%= content_tag :strong, @comment.created_at.strftime("%H:%M %d/%m/%Y"), class: "date" %>
 

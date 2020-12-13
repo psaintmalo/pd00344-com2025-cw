@@ -56,7 +56,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
     end
 
-    assert_redirected_to post_comment_url(@post, Comment.last)
+    assert_redirected_to @post
   end
 
   # Test comments are displayed correctly
@@ -67,20 +67,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_select "strong", "Post:"
     assert_select "strong", "Comment:"
     assert_select "a", "Back"
-  end
-
-  # Test the edit page is displayed correctly
-  test "should get edit" do
-    get edit_post_comment_url(@post, @comment)
-    assert_response :success
-
-    assert_select "label", "Comment"
-  end
-
-  # Should update the comment
-  test "should update comment" do
-    patch post_comment_url(@post, @comment), params: { comment: { commentText: @comment.commentText} }
-    assert_redirected_to post_comment_url(@comment)
   end
 
   # Should be able to destroy your own comment
