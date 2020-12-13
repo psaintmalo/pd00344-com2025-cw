@@ -122,6 +122,7 @@ en:
     user: User
     created_at: Created At
     showComments: Show Comments
+    views: Views
 
     addBookmark: Add Bookmark
     removeBookmark: Remove Bookmark
