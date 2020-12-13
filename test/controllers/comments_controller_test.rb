@@ -14,21 +14,10 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_select "h1", "Post: " << @post.title
     assert_select "h2", "All Comments"
 
-    assert_select "table" do
-      assert_select "thead" do
+    assert_select "div[class=comment]", {count: @post.comments.count}
 
-        assert_select "th[id=comment]", "Comment"
-        assert_select "th[id=user]", "User"
-        assert_select "th[id=createdAt]", "Created At"
 
-      end
 
-      assert_select "tbody" do
-
-        assert_select "tr", {count: @post.comments.count}
-
-      end
-    end
   end
 
   # Should return the appropiate empty index

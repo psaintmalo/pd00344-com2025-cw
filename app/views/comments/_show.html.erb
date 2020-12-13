@@ -1,6 +1,7 @@
+<% if @post.comments.count > 0 %>
+
 <div class="commentBlock">
   <div class="comments">
-
 
     <% @post.comments.each do |comment|  %>
       <div class="comment">
@@ -22,3 +23,9 @@
 
   <br>
 </div>
+
+<% else %>
+
+  <%= content_tag :h3, t("comments.emptyIndex") %>
+
+<% end %>

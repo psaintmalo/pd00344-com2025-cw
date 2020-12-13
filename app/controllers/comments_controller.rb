@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
+    @post = @post
     @comments = Comment.post_comments(@post)
     @origin_url = params[:origin_url] == nil ? @post : params[:origin_url]
   end
@@ -57,7 +58,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.js
     end
-end
+  end
 
 
   private

@@ -1,39 +1,18 @@
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  new_ajax_refresh("/refresh_comments", window.location.pathname, {post_id:<%= @post.id %>}, 2000);
+
+});
+
+</script>
+
 <%= content_tag :h1, t("comments.indexTitle") << Post.find(params[:post_id]).title %>
 <br>
 <h2><%= t("comments.comments") %></h2>
 
-<% if @comments.count > 0 %>
-<table>
-  <thead>
-    <tr>
-      <th id = "comment"><%= t("comments.comment") %></th>
-      <th id = "user"><%= t("comments.user") %></th>
-      <th id = "createdAt"><%= t("comments.createdAt") %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= link_to comment.commentText, post_comment_path(@post, comment) %></td>
-        <td><%= comment.user.username %></td>
-        <td><%= comment.user.created_at.strftime("%H:%M %d/%m/%Y") %></td>
-
-        <% if current_user == comment.user%>
-
-          <%= content_tag :td, ( link_to t("destroy"), [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } ) %>
-          <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<% else %>
-
-  <%= content_tag :h3, t("comments.emptyIndex") %>
-
-<% end %>
+<%= render "comments/show" %>
 
 <br>
 

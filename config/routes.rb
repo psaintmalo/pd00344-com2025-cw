@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       }
 
   post "refresh_comments", to: "comments#refresh_comments"
+  post "refresh_posts", to: "posts#refresh_posts"
 
   get "contact", to: "home#contact"
   post "request_contact", to: "home#request_contact"
