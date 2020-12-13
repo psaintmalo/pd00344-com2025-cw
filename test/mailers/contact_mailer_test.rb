@@ -10,7 +10,7 @@ class ContactMailerTest < ActionMailer::TestCase
 
     assert_equal ["support@forum.com"], mail.to
     assert_equal ["support@forum.com"], mail.from
-    
+
   end
 
 end

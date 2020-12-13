@@ -16,35 +16,53 @@ class UserTest < ActiveSupport::TestCase
   # Test that a valid user will get saved correctly
   test "should create valid user" do
     myUser = User.new
+    myUser.username = "user"
     myUser.email = "user@forum.com"
     myUser.password = "12345678"
     myUser.save
     assert myUser.valid?
   end
 
+  # Check that a user wont be able to register if its username isnt unique
+  test "should not create user with non-unique username" do
+    myUser = User.new
+    myUser.username = "test"
+    myUser.email = "abc@companyemail.com"
+    myUser.password = "---"
+    myUser.save
+    refute myUser.valid?
+  end
+
+  # Check that a user wont be able to register if its email isnt unique
+  test "should not create user with non-unique email" do
+    myUser = User.new
+    myUser.username = "abc"
+    myUser.email = "test@forum.com"
+    myUser.password = "---"
+    myUser.save
+    refute myUser.valid?
+  end
+
   # Test that a user with no posts can be destroyed
   test "should destroy user with no posts" do
 
-    @user.destroy
-    assert @user.destroyed?
+    myUser = User.new
+    myUser.username = "abc"
+    myUser.email = "abc@forum.com"
+    myUser.password = "---"
+    myUser.save
+
+    myUser.destroy
+    assert myUser.destroyed?
 
   end
 
   # Test that a user with posts can be destroyed
   test "should destroy user with posts" do
 
-    post = Post.new
-    post.title = "This is my first post"
-    post.text = "Im very excited!"
-    post.user = @user
-    post.save
-
-    assert post.valid?
-
     @user.destroy
     assert @user.destroyed?
 
   end
-
 
 end
