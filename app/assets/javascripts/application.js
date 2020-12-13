@@ -15,3 +15,41 @@
 //= require turbolinks
 //= require jquery3
 //= require_tree .
+
+var refresh_inter = null;
+
+function ajax_refresh(destinationUrl, originUrl, postData) {
+
+  if(originUrl == window.location.pathname) {
+
+    console.log("refreshing");
+
+    $.ajax({
+
+      type: "POST",
+      data: postData,
+      url: destinationUrl
+
+    });
+
+  } else {
+
+    console.log("clearing");
+    clearInterval(refresh_inter);
+    refresh_inter = null;
+
+  }
+
+}
+
+function new_ajax_refresh(destinationUrl, originUrl, postData, freq) {
+
+  if(refresh_inter != null) {
+    console.log("Force clearing old interval");
+    clearInterval(refresh_inter);
+    refresh_inter = null;
+  }
+
+  refresh_inter = setInterval(ajax_refresh, freq, destinationUrl, originUrl, postData);
+
+}
