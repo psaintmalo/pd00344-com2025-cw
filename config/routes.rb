@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         sessions: 'users/sessions'
       }
 
+  post "refresh_comments", to: "comments#refresh_comments"
+
   get "contact", to: "home#contact"
   post "request_contact", to: "home#request_contact"
 

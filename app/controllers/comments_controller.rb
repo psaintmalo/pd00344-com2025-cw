@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:refresh_comments]
   before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:show, :update, :destroy]
@@ -48,6 +49,16 @@ class CommentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def refresh_comments
+
+    @data = @post.id
+
+    respond_to do |format|
+      format.js
+    end
+end
+
 
   private
 

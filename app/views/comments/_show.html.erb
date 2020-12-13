@@ -1,23 +1,24 @@
+<div class="commentBlock">
+  <div class="comments">
 
-<div class="comments">
 
+    <% @post.comments.each do |comment|  %>
+      <div class="comment">
 
-  <% @post.comments.each do |comment|  %>
-    <div class="comment">
+        <%= content_tag :p, comment.commentText %>
+        <div class="details">
+          <%= content_tag :strong, t("comments.user") << ":" %>
+          <%= content_tag :strong, comment.user.username %>
 
-      <%= content_tag :p, comment.commentText %>
-      <div class="details">
-        <%= content_tag :strong, t("comments.user") << ":" %>
-        <%= content_tag :strong, comment.user.username %>
+          <% if current_user == comment.user %>
+            <%= link_to t("post.destroy"),[@post, comment], class: "cool", method: :delete, data: { confirm: t("post.index.confirm") } %>
+          <% end %>
 
-        <% if current_user == comment.user %>
-          <%= link_to t("post.destroy"),[@post, comment], class: "cool", method: :delete, data: { confirm: t("post.index.confirm") } %>
-        <% end %>
-
-        <%= content_tag :strong, comment.created_at.strftime("%H:%M %d/%m/%Y"), class: "date" %>
+          <%= content_tag :strong, comment.created_at.strftime("%H:%M %d/%m/%Y"), class: "date" %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<br>
+  <br>
+</div>
