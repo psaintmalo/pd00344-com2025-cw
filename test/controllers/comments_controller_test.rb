@@ -7,40 +7,83 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:one)
   end
 
-  test "should get index" do
+  # Test comments index is returned correctly for a non-empty index
+  test "should get non-empty index" do
     get post_comments_url(@post)
-    assert_response :success
+
+    assert_select "h1", "Post: " << @post.title
+    assert_select "h2", "All Comments"
+
+    assert_select "table" do
+      assert_select "thead" do
+
+        assert_select "th[id=comment]", "Comment"
+        assert_select "th[id=user]", "User"
+        assert_select "th[id=createdAt]", "Created At"
+
+      end
+
+      assert_select "tbody" do
+
+        assert_select "tr", {count: @post.comments.count}
+
+      end
+    end
   end
 
+  # Should return the appropiate empty index
+  test "should get empty index" do
+    get post_comments_url(posts(:three))
+
+    assert_select "h3", "Oh no, this is a bit empty, why not be the first one to make a comment?"
+    assert_select "table", false
+
+  end
+
+  # Test the correct new comment page is returned
   test "should get new" do
     get new_post_comment_url(@post, @comment)
     assert_response :success
+
+    assert_select "h1", "New Comment"
+    assert_select "label", "Comment"
   end
 
+  # Test a comment is created correctly
   test "should create comment" do
     assert_difference('Comment.count') do
-      post post_comments_url(post_id: @post, id: @comment), params: { comment: { commentText: @comment.commentText, post_id: @comment.post_id, user_id: @comment.user_id } }
+      post post_comments_url(post_id: @post, id: @comment), params: { comment: { commentText: @comment.commentText, post_id: @comment.post_id} }
 
     end
 
     assert_redirected_to post_comment_url(@post, Comment.last)
   end
 
+  # Test comments are displayed correctly
   test "should show comment" do
     get post_comment_url(@post, @comment)
     assert_response :success
+
+    assert_select "strong", "Post:"
+    assert_select "strong", "Comment:"
+    assert_select "a", "Back"
   end
 
+  # Test the edit page is displayed correctly
   test "should get edit" do
     get edit_post_comment_url(@post, @comment)
     assert_response :success
+
+    assert_select "label", "Comment"
   end
 
+  # Should update the comment
   test "should update comment" do
-    patch post_comment_url(@post, @comment), params: { comment: { commentText: @comment.commentText, post_id: @comment.post_id, user_id: @comment.user_id } }
+    patch post_comment_url(@post, @comment), params: { comment: { commentText: @comment.commentText} }
     assert_redirected_to post_comment_url(@comment)
   end
 
+  # Should be able to destroy your own comment
   test "should destroy comment" do
     assert_difference('Comment.count', -1) do
       delete post_comment_url(@post, @comment)
@@ -49,6 +92,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to  post_comments_url
   end
 
+  # Shouldnt be able to destroy others comments
   test "should not destroy comment if from another user" do
 
     assert_difference('Comment.count', 0) do
@@ -58,21 +102,14 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to  post_comments_url
   end
 
-  test "should destroy comment if from my user" do
-
-    assert_difference('Comment.count', -1) do
-      delete post_comment_url(@post, comments(:one))
-    end
-
-    assert_redirected_to  post_comments_url
-  end
-
+  # Test redirect to login page if logged out
   test "should redirect to login page from comments if logged out" do
     sign_out users(:one)
     get post_comments_url(@post)
     assert_redirected_to new_user_session_url
   end
 
+  # Test if you are able to create an empty comment
   test "should not create empty comments" do
     comment = Comment.new
     refute comment.valid?

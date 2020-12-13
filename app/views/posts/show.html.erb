@@ -1,19 +1,19 @@
 <div class = "post">
 
-  <strong><%= t("post.title") %>:</strong>
+  <strong id = "title"><%= t("post.title") %>:</strong>
   <br>
   <p class="title">
     <%= @post.title %>
   </p>
 
 
-  <strong><%= t("post.text") %>:</strong>
+  <strong id = "text"><%= t("post.text") %>:</strong>
   <br>
 
   <p><%= @post.text %></p>
 
 
-  <strong><%= t("post.user") << ": " << @post.user.username %></strong>
+  <strong id = "user"><%= t("post.user") << ": " << @post.user.username %></strong>
 
   <br>
 
