@@ -154,6 +154,10 @@ en:
       title: Contact Us
       message: Fill the form bellow to contact us
 
+      acp: Account Problems
+      tep: Technical Problems
+      op: Other Problems
+
       form:
         name: "Name:"
         enter_name: Enter your name
