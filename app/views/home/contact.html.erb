@@ -52,7 +52,7 @@
 
   <%= form_tag request_contact_path, method: 'post' do | f | %>
     <%= label_tag :name, t('home.contact.form.name') %>
-    <%= text_field_tag :name, "", title: t('home.contact.form.enter_name'), size: 50, id: "name" %>
+    <%= text_field_tag :name, "", title: t('home.contact.form.enter_name'), id: "name" %>
     <%= label_tag :email, t('home.contact.form.email') %>
     <%= email_field_tag :email, user_signed_in? ? current_user.email : '', title: t('home.contact.form.enter_email'), id: "email" %>
     <%= label_tag :reason, t('home.contact.form.reason') %>
