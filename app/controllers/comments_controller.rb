@@ -13,11 +13,6 @@ class CommentsController < ApplicationController
     @origin_url = params[:origin_url] == nil ? @post : params[:origin_url]
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-  end
-
   # GET /comments/new
   def new
     @comment = @post.comments.build

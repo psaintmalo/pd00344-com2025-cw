@@ -48,16 +48,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to @post
   end
 
-  # Test comments are displayed correctly
-  test "should show comment" do
-    get post_comment_url(@post, @comment)
-    assert_response :success
-
-    assert_select "strong", "Post:"
-    assert_select "strong", "Comment:"
-    assert_select "a", "Back"
-  end
-
   # Should be able to destroy your own comment
   test "should destroy comment" do
     assert_difference('Comment.count', -1) do
