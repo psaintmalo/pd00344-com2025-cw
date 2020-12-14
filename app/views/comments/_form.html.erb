@@ -1,3 +1,29 @@
+<script type="text/javascript">
+
+  $(document).ready(function() {
+
+    var commentText = $("#commentText");
+
+    $("textarea#commentText").click(function() {
+      commentText.removeClass("error");
+      console.log("test");
+    });
+
+    $("input:submit").click(function() {
+
+      if(commentText.val().length == 0) {
+
+        event.preventDefault();
+        commentText.addClass("error");
+        alert("Comment cant be left empty");
+
+      }
+
+    });
+  });
+
+</script>
+
 <%= form_with(model: [@post, comment], local: true) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
@@ -16,7 +42,7 @@
 
     <br>
 
-    <%= form.text_area :commentText %>
+    <%= form.text_area :commentText, id: "commentText" %>
   </div>
 
   <div class="actions">
