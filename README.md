@@ -1,24 +1,18 @@
-# README
+# COM2025 coursework
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The website is based on a forum where you can create posts and also reply to them via comments.
 
-Things you may want to cover:
+Some of the extra features are:
+* Ability to bookmark posts 
+* AJAX used to keep the posts/index updated in real time
+* Ability to log in useing either you email address or your username
 
-* Ruby version
+Some posts and comments for seeing the functionality are provided in the seeds.rb
 
-* System dependencies
+If you wish to use them, please log in as:
+testuser
+testpassword
 
-* Configuration
+otherwise, feel free to create your own account.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The website uses Rails 5.2.4.4 and Ruby 2.5.1
