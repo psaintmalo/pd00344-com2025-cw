@@ -6,6 +6,7 @@ Some of the extra features are:
 * Ability to bookmark posts 
 * AJAX used to keep the posts/index updated in real time
 * Ability to log in useing either you email address or your username
+* Ability to attach images to posts
 
 Some posts and comments for seeing the functionality are provided in the seeds.rb
 

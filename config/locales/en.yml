@@ -125,6 +125,8 @@ en:
     showComments: Show Comments
     views: Views
     comments: Comments
+    atImage: "Attached Image: "
+    img: Image
 
     addBookmark: Add Bookmark
     removeBookmark: Remove Bookmark

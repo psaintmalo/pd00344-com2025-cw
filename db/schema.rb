@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_115040) do
+ActiveRecord::Schema.define(version: 2020_12_14_131529) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "post_id", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_115040) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "views", default: 0, null: false
+    t.string "img"
     t.index ["title"], name: "index_posts_on_title"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

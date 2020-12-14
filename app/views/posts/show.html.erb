@@ -27,6 +27,12 @@
 
   <br>
 
+  <% imgUrl = @post.img.url %>
+  <% if imgUrl != nil %>
+    <%= content_tag :strong, t("post.atImage")%>
+    <%= link_to File.basename(imgUrl), imgUrl %>
+  <% end %>
+
   <div class = "controls">
     <br>
     <% if current_user == @post.user %>
