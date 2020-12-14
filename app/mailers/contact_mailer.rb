@@ -1,5 +1,6 @@
 class ContactMailer < ApplicationMailer
 
+  # Contact mailer method
   def contact_email(email, name,  reason, message)
 
     @email = email
@@ -10,5 +11,4 @@ class ContactMailer < ApplicationMailer
     mail cc: @mail
 
   end
-
 end

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  # Adding username as an attribute for users
   def config_params
     attributes = [:username, :email, :password, :password_confirmation, :remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: attributes

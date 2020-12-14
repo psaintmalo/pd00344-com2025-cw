@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  # To avoid InvalidAuthenticityToken error when using ajax
   skip_before_action :verify_authenticity_token, only: [:refresh_posts]
+
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :check_owner, only: [:edit, :update, :destroy]
@@ -68,6 +70,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # Fore refreshing index partial
   def refresh_posts
 
     @posts = Post.all

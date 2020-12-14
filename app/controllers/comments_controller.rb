@@ -1,25 +1,27 @@
 class CommentsController < ApplicationController
+  # To avoid InvalidAuthenticityToken error when using ajax
   skip_before_action :verify_authenticity_token, only: [:refresh_comments]
+
   before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:show, :update, :destroy]
   before_action :check_owner, only: [:update, :destroy]
 
-  # GET /comments
-  # GET /comments.json
+  # GET /posts/:post_id/comments
+  # GET /posts/:post_id/comments.json
   def index
     @post = @post
     @comments = Comment.post_comments(@post)
     @origin_url = params[:origin_url] == nil ? @post : params[:origin_url]
   end
 
-  # GET /comments/new
+  # GET /posts/:post_id/comments/new
   def new
     @comment = @post.comments.build
   end
 
-  # POST /comments
-  # POST /comments.json
+  # POST /posts/:post_id/comments
+  # POST /posts/:post_id/comments.json
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -36,8 +38,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
+  # DELETE /posts/:post_id/comments/1
+  # DELETE /posts/:post_id/comments/1.json
   def destroy
     @comment.destroy
     respond_to do |format|
@@ -46,8 +48,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  # Ajax method for refreshing the comments partial
   def refresh_comments
 
+    # Pass the post id in data 
     @data = @post.id
 
     respond_to do |format|

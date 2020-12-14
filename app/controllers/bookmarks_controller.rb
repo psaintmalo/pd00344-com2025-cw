@@ -38,7 +38,6 @@ class BookmarksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     #Check if the current user is the owner of the bookmark and also set the bookmark
     def set_bookmark_check_owner
@@ -53,6 +52,7 @@ class BookmarksController < ApplicationController
       end
     end
 
+    # Custom redirect for create and destroy methodss
     def set_redirect
       @redirect = params[:origin_url] == nil ? bookmarks_path : params[:origin_url]
     end
